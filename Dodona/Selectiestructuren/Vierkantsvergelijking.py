@@ -11,7 +11,7 @@ elif formule == 0:
   print(-(b/2*a))
 elif formule > 0:
   print("twee wortels")
-  if (-b+math.sqrt(formule)/2*a) > (-b-math.sqrt(formule)/2*a):
+  if ((-b) +math.sqrt(formule)/2*a) > ((-b) -math.sqrt(formule)/2*a):
     print((-b-math.sqrt(formule))/2*a)
     print((-b+math.sqrt(formule))/2*a)
   else:

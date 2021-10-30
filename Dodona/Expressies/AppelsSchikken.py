@@ -1,5 +1,6 @@
-appels = int(input())
-kisten = int(appels //20)
-palleten = int(kisten //35)
+appel = int(input())
+crate = int(appel // 20) 
+pallet = int(crate //35)
+rest = int(appel % 20)
 
-print(f"{palleten}\n{kisten}\n{appels}")
+print(f"{pallet}\n{crate % 35}\n{rest}")
