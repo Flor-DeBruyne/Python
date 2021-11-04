@@ -13,6 +13,7 @@ def appreciation(priceBigMac: float, exchangeRate = 0.70):
       return "overrated"
     else:
       return "strongly overrated"
+
     # match v:
     #   case n if n <= -25:
     #     return "strongly underrated"
@@ -27,10 +28,10 @@ def appreciation(priceBigMac: float, exchangeRate = 0.70):
 
 def exchange_rate_analysis(priceBig: str, exchangeRate = 0.70):
     """printing the appreciation rate of the big"""
-    price = priceBig.split(' ')
+    price = priceBig.split(" ",1)
     currency = price[1:]
     listToString = ''.join(map(str,currency))
-    return (f"The {listToString} is {appreciation(float(price[0]))} with regard to the dollar.")
+    return (f"The {listToString} is {appreciation(float(price[0]), exchangeRate)} with regard to the dollar.")
 
 
 
