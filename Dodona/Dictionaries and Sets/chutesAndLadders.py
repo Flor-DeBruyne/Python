@@ -9,7 +9,7 @@ def merge(chutes,ladders):
             for a, b in ladders.items():
                 if a >= b:
                     raise AssertionError 
-                elif x == a:
+                if x == a:
                     raise AssertionError            
         dictornary_number_spaces = chutes | ladders
         for x, y  in dictornary_number_spaces.items():
@@ -24,15 +24,14 @@ def spaces(rolls, config_chutes, config_ladders):
     spaces_list = []
     chutes_ladders = merge(config_chutes, config_ladders)
     for x in rolls:
-        if space + x > 100:
-            continue
-        if space in chutes_ladders:
-            space = chutes_ladders[x]
-        else:
-            space += x
-        spaces_list.append(space)        
-    return spaces_list
-
+          if space + rolls[x] in chutes_ladders:
+                if space + rolls[x] > 100:
+                    continue
+                space = chutes_ladders.values()[space+rolls[x]]
+                spaces_list.append(chutes_ladders.values()[space+rolls[x]])
+          else:
+               spaces_list.append(space+rolls[x])
+                
 
 
 

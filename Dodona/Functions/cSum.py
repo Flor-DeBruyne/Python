@@ -1,14 +1,11 @@
 def csum(digit):
     """calculating the c sum"""
-    d = list(map(int,str(digit)))
-    stop = True
-    while stop:
-        if len(d) == 1:
-            res = ' '.join(map(str, d))
-            print(res)
-            stop = False
-        else:
-            sum(d)
+    d = digit
+    while len(str(d)) is not 1:
+        d = list(map(int,str(d)))
+        d = sum(d)
+    return d
+    
 
 
 # def main():
