@@ -1,7 +1,6 @@
 def alphabetical(string):
     """function to sort the string in alphabetical order"""
     unorderd = string.split()
-    unorderd.sort()
-    orderd = str(" ".join(unorderd))
+    orderd = str(" ".join(unorderd.sort()))
     return orderd
 

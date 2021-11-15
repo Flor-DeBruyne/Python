@@ -19,19 +19,23 @@ def merge(chutes,ladders):
     except AssertionError as exc:
         raise AssertionError('invalid configuration') from exc
 
-def spaces(rolls, config_chutes, config_ladders):
+def spaces(rolls: list, config_chutes: dict, config_ladders: dict):
     space = 0
-    spaces_list = []
-    chutes_ladders = merge(config_chutes, config_ladders)
-    for x in rolls:
-          if space + rolls[x] in chutes_ladders:
-                if space + rolls[x] > 100:
-                    continue
-                space = chutes_ladders.values()[space+rolls[x]]
-                spaces_list.append(chutes_ladders.values()[space+rolls[x]])
+    chutes_ladders_difference = merge(config_chutes, config_ladders)
+    space_list = []
+    for x, roll in enumerate(rolls):
+          if space + roll in chutes_ladders_difference:
+                  space += roll + chutes_ladders_difference[space+roll]
+                  space_list.append(space)
           else:
-               spaces_list.append(space+rolls[x])
-                
+                  if space + roll > 100:
+                        space_list.append(space)
+                  else:
+                        space += roll
+                        space_list.append(space)
+    return space_list
+
+
 
 
 

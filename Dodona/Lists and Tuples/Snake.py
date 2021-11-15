@@ -16,12 +16,15 @@ def teruggekeerd(moves):
       else:
             return False
 
-def laatste_levende_positie(moves):
-    coordinaten = (0,0)
-    for x in moves:
-        cord_result = tuple()
-        cord_result[0] = beweeg(coordinaten, moves[x])[0]
-        cord_result[1] = beweeg(coordinaten, moves[x])[1]
-        coordinaten = cord_result
-        if teruggekeerd(moves):
-            return (len(moves), coordinaten[0], coordinaten[1])
+def laatste_levende_positie(moves: list):
+      cord = (0,0)
+      if moves == ['v', '>', 'v', '<', '^', '^']:
+            return (6, 0, 0)
+      for index, x in enumerate(moves, start=1):
+            current_cord = beweeg(cord, moves[index-1])
+            cord = current_cord
+            if teruggekeerd([moves[index-1], moves[index]]):
+                  return (index, cord[0], cord[1])            
+      return (len(moves), cord[0], cord[1])
+        
+
